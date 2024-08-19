@@ -1,0 +1,78 @@
+
+/*=============================
+   banner Landing
+===============================*/
+
+.lbanner-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 50px;
+  background-image: url('../../assets/img/landing-page/background.png');
+  background-size: 70%;
+  background-position: 75% center;
+  background-repeat: no-repeat;
+  color: black;
+  min-height: 80vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.lbanner-content {
+  max-width: 50%;
+  margin-right: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  text-align: left;
+}
+
+.lbanner-content h1, .lbanner-content h2 {
+  color: #333;
+}
+
+.lbanner-content h1 {
+  font-size: 3em; /* Tamaño de fuente aumentado */
+  margin-bottom: 20px;
+  font-weight: bold; /* Texto en negrita */
+}
+
+.lbanner-content h2 {
+  font-size: 2.2em; /* Tamaño de fuente aumentado */
+  margin-bottom: 75px;
+  font-weight: bold; /* Texto en negrita */
+}
+
+.lbanner-content p {
+  font-size: 1.4em; /* Tamaño de fuente aumentado */
+  color: #555;
+  margin-bottom: 60px;
+}
+
+
+
+.lcta-button:hover {
+  background-color: #e69517; /* Color más oscuro al pasar el mouse */
+}
+
+.lcta-button {
+  padding: 15px 30px; /* Tamaño del botón aumentado */
+  font-size: 1.6em; /* Tamaño de fuente del botón aumentado */
+  background-color: #FAA819; /* Color especificado */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .lbanner-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .lbanner-content {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,121 @@
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.keyword-highlight {
+    background-color: #FAA819; /* Resalta con color de fondo amarillo */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 2px 4px; /* Espaciado interno para el texto */
+}
+
+.hero-carousel-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+.text-container {
+    position: absolute;
+    z-index: 2;
+    color: #000000; /* Color más claro */
+    text-align: left;
+    padding: 20px;
+    max-width: 900px;
+    top: 10%;
+    left: 5%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0) 100%);
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.icon-category {
+    font-family: 'Nunito Sans SemiBold', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #555555; /* Color más claro */
+}
+
+.main-phrase {
+    font-family: 'Syne SemiBold', sans-serif;
+    font-size: 70px; /* Título más grande */
+    margin: 10px 0;
+    color: #333333; /* Color más claro */
+}
+
+.sub-phrase {
+    font-family: 'Nunito Sans SemiBold', sans-serif;
+    font-size: 34px; /* Subtítulo más grande */
+    margin: 10px 0;
+    color: #444444; /* Color más claro */
+}
+
+.text-container p {
+    font-size: 28px; /* Texto general más grande */
+    margin: 10px 0; /* Espaciado adecuado */
+    color: #000; /* Color más claro */
+}
+
+.cta-button {
+    background-color: #FAA819;
+    color: white;
+    padding: 12px 24px; /* Botón más grande */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px; /* Texto del botón más grande */
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.slick-dots li button:before {
+    color: #FC6BCB;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #FC6BCB;
+}
+
+@media (max-width: 768px) {
+    .hero-carousel-slide {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .text-container {
+        position: static;
+        transform: none;
+        padding: 10px;
+        text-align: center;
+        background: none;
+    }
+
+    .main-phrase {
+        font-size: 36px;
+    }
+
+    .sub-phrase {
+        font-size: 18px;
+    }
+
+    .text-container p {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}

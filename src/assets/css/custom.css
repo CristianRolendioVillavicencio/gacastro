@@ -1,0 +1,111 @@
+.services-item {
+  overflow: hidden;
+}
+.services-overlay-content {
+  display: block;
+  position: absolute;
+  top: 100%;
+  transition: 0.3s linear;
+}
+.services-item .services-content .title {
+  overflow: hidden;
+  display: block;
+  transition: 0.3s linear;
+}
+.services-item:hover .services-content .title {
+  display: none;
+}
+.services-icon {
+  height: 100px;
+  overflow: hidden;
+  transition: 0.3s linear;
+}
+.services-item:hover .services-icon {
+  height: 0;
+}
+.services-item:hover .services-overlay-content {
+  top: 50px;
+}
+.project-item .project-content p {
+  display: block;
+  transition: max-height 0.5s;
+  overflow: hidden;
+  max-height: 0;
+}
+.project-item:hover > .project-content p {
+  max-height: var(--max-height);
+}
+.project-thumb {
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s;
+}
+.project-item:hover > .project-thumb {
+  max-height: var(--max-height);
+}
+:is(.testimonial-active, .testimonial-active-two) .slick-dots {
+  display: flex !important;
+  justify-content: flex-end !important;
+  bottom: unset;
+}
+.testimonial-active-two .slick-dots {
+  justify-content: center !important;
+}
+:is(.testimonial-active, .testimonial-active-two) .slick-dots li {
+  margin: 0;
+  width: auto;
+}
+
+:is(.testimonial-active, .testimonial-active-two) .slick-dots button::before {
+  content: "" !important;
+  display: none !important;
+}
+.inner-testimonial-area {
+  position: relative;
+}
+.testimonial-avatar-wrap .list-wrap li {
+  z-index: 1;
+}
+.breadcrumb-content .breadcrumb-item:last-child a {
+  color: #fe5d14;
+}
+.slider-area .slick-prev:before,
+.slider-area .slick-next:before {
+  content: "";
+}
+.banner-nav .slick-arrow {
+  width: 100%;
+}
+.slider-area .slick-prev,
+.slider-area .slick-next {
+  position: unset;
+  height: auto;
+  transform: translate(0, 0);
+}
+:is(.engineer-active, .project-active, .project-active-two) .slick-dots {
+  position: unset;
+  text-align: center;
+}
+:is(.engineer-active, .project-active, .project-active-two) .slick-dots li {
+  width: auto;
+}
+.tab-content .tab-pane {
+  display: none;
+  animation: tabFade 1s;
+}
+.tab-content .tab-pane.active {
+  display: block;
+}
+
+@keyframes tabFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.mobile-menu .navigation li:hover > ul {
+  display: block;
+}

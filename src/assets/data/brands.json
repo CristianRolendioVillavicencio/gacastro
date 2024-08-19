@@ -1,0 +1,48 @@
+[
+    {
+      "name": "GAF Roofing",
+      "url": "https://www.gaf.com",
+      "image": "gaf.png"
+    },
+    {
+      "name": "Owens Corning Roofing",
+      "url": "https://www.owenscorning.com",
+      "image": "owens_corning.png"
+    },
+    {
+      "name": "Malarkey Roofing",
+      "url": "https://www.malarkeyroofing.com",
+      "image": "malarkey_roofing.webp"
+    },
+    {
+      "name": "DaVinci Roofing",
+      "url": "https://www.davinciroofscapes.com",
+      "image": "davinci_roofing.png"
+    },
+    {
+      "name": "IKO Roofing",
+      "url": "https://www.iko.com",
+      "image": "iko.png"
+    },
+    {
+      "name": "CertaPro Painters",
+      "url": "https://www.certapro.com",
+      "image": "certapro_painters.png"
+    },
+    {
+      "name": "Benjamin Moore",
+      "url": "https://www.benjaminmoore.com",
+      "image": "benjamin_moore.png"
+    },
+    {
+      "name": "Sherwin-Williams",
+      "url": "https://www.sherwin-williams.com",
+      "image": "sherwin_williams.png"
+    },
+    {
+      "name": "CertainTeed",
+      "url": "https://www.sherwin-williams.com",
+      "image": "certainteed.png"
+    }
+  ]
+  

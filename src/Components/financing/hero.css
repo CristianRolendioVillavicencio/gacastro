@@ -1,0 +1,397 @@
+/*=============================
+	01. Hero Section
+===============================*/
+.financing-hero-section {
+  padding: 75px 0; 
+  margin-bottom: 75px;
+}
+
+.financing-hero-content {
+  max-width: 500px;
+}
+
+.financing-hero-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.financing-hero-content h1 span {
+  color: #ff3366; /* Ajusta el color según sea necesario */
+}
+
+.financing-hero-content p {
+  margin: 20px 0;
+  color: #666;
+}
+
+.financing-hero-buttons .btn {
+  margin-right: 15px;
+}
+
+.financing-hero-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 1200px) {
+  .financing-hero-content h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .financing-hero-content h1 {
+    font-size: 36px;
+  }
+
+  .financing-hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .financing-hero-buttons .btn {
+    margin-right: 10px;
+  }
+
+  .financing-hero-image {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .financing-hero-content h1 {
+    font-size: 32px;
+  }
+
+  .financing-hero-content p {
+    font-size: 16px;
+  }
+
+  .financing-hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .financing-hero-buttons .btn {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .financing-hero-image img {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .financing-hero-content h1 {
+    font-size: 28px;
+  }
+
+  .financing-hero-content p {
+    font-size: 14px;
+  }
+
+  .financing-hero-buttons .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .financing-hero-image img {
+    width: 100%;
+  }
+}
+
+/*=============================
+    02. How Hearth Works
+===============================*/
+.banner {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: -115px;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .banner img {
+      width: 100%;
+      height: auto;
+  }
+}
+
+.how-hearth-works-section {
+  padding: 50px 0;
+  padding-bottom: 100px;
+  background: linear-gradient(11deg, #fff  25%, #FAA819 50%);
+  color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #0d0900;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.left-half {
+  text-align: center;
+  padding: 20px;
+}
+
+.right-half {
+  padding: 20px;
+  color: #fff;
+}
+
+.hearth-image {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hearth-image img {
+  max-width: 40%; /* Ajusta este valor según sea necesario para hacer la imagen más pequeña */
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.0);
+}
+
+.hearth-steps {
+  padding-left: 20px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.step-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff3366;
+  margin-right: 20px;
+}
+
+.step-content h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: Black;
+}
+
+.step-content p {
+  margin: 0;
+  color: black;
+}
+
+/* Media queries para hacer la sección responsiva */
+@media (max-width: 992px) {
+  .right-half, .left-half {
+      padding: 10px;
+  }
+
+  .step-content h3 {
+      font-size: 20px;
+  }
+
+  .step-content p {
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+      font-size: 28px;
+  }
+
+  .section-subtitle {
+      font-size: 16px;
+  }
+
+  .step-number {
+      font-size: 20px;
+  }
+
+  .step-content h3 {
+      font-size: 18px;
+  }
+
+  .step-content p {
+      font-size: 12px;
+  }
+}
+
+
+/*=============================
+    03. Banner
+===============================*/
+/* NewBanner.css */
+.new-banner {
+  background-color: #ffffff; /* Fondo blanco */
+  color: black;
+  padding: 60px 20px;
+  text-align: left;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1; /* Asegúrate de que el banner esté en un nivel adecuado */
+}
+
+.new-banner-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.new-banner-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.new-banner h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.new-banner .highlight-ga {
+  color: #ff3366; /* Color llamativo para "GA Castro Construction" */
+}
+
+.new-banner p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #666666;
+}
+
+.new-banner .button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.new-banner-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #FAA819; /* Fondo del botón */
+  color: white; /* Texto blanco */
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-banner-button:hover {
+  background-color: #e59817; /* Color del botón al hacer hover */
+  transform: scale(1.05);
+}
+
+.email-button {
+  background-color: #ff3366; /* Fondo del botón de email */
+}
+
+.email-button:hover {
+  background-color: #cc2952; /* Color del botón de email al hacer hover */
+}
+
+.new-banner-widget {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Asegúrate de que el iframe esté en un nivel adecuado */
+}
+
+.new-banner-widget iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+
+/* Media queries para hacer el banner responsivo */
+@media (max-width: 1200px) {
+  .new-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .new-banner-content {
+    flex-direction: column;
+  }
+
+  .new-banner-text {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .new-banner h1 {
+    font-size: 2.5em;
+  }
+
+  .new-banner p {
+    font-size: 1.1em;
+  }
+
+  .new-banner-widget iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .new-banner h1 {
+    font-size: 2em;
+  }
+
+  .new-banner p {
+    font-size: 1em;
+  }
+
+  .new-banner-widget iframe {
+    height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .new-banner h1 {
+    font-size: 1.5em;
+  }
+
+  .new-banner p {
+    font-size: 0.9em;
+  }
+
+  .new-banner-button {
+    padding: 10px 20px;
+  }
+
+  .new-banner-widget iframe {
+    height: 200px;
+  }
+}
