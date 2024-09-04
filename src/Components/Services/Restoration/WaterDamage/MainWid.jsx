@@ -1,4 +1,5 @@
 import React from "react";
+import FreeQuoteForm from '../../../forms/FreeQuoteForm'; // Importa el componente de formulario
 
 function WaterDamageService() {
   return (
@@ -153,8 +154,7 @@ function WaterDamageService() {
                     </li>
                     <li><a href="/services/copper-services" aria-label="Link to copper services">Copper Services<i className="fas fa-arrow-right"></i></a></li>
                     <li><a href="/services/wind-damage-services" aria-label="Link to wind damage services">Wind Damage Services<i className="fas fa-arrow-right"></i></a></li>
-                    
-                      <li><a href="/services/carpentry-services" aria-label="Link to carpentry services">Carpentry Services<i className="fas fa-arrow-right"></i></a></li>
+                    <li><a href="/services/carpentry-services" aria-label="Link to carpentry services">Carpentry Services<i className="fas fa-arrow-right"></i></a></li>
                   </ul>
                 </div>
               </div>
@@ -164,68 +164,7 @@ function WaterDamageService() {
                 aria-labelledby="get-quote-title"
               >
                 <h4 className="widget-title" id="get-quote-title">Get a Free Quote</h4>
-                <form action="#" className="sidebar-form" aria-label="Contact form">
-                  <div className="form-grp">
-                    <input id="name" type="text" placeholder="Your Name" aria-label="Enter your name" />
-                  </div>
-                  <div className="form-grp">
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder="Your Email Address"
-                      aria-label="Enter your email address"
-                    />
-                  </div>
-                  <div className="form-grp">
-                    <input
-                      id="phone"
-                      type="tel"
-                      placeholder="Your Phone Number"
-                      aria-label="Enter your phone number"
-                    />
-                  </div>
-                  <div className="form-grp">
-                    <input
-                      id="address"
-                      type="text"
-                      placeholder="Your Address"
-                      aria-label="Enter your address"
-                    />
-                  </div>
-                  <div className="form-grp">
-                    <textarea
-                      id="message"
-                      placeholder="Your Message"
-                      aria-label="Enter your message"
-                    ></textarea>
-                  </div>
-                  <button type="submit" className="btn btn-two" aria-label="Submit contact form">
-                    Contact Us
-                  </button>
-                </form>
-              </div>
-              <div className="services-widget">
-                <h4 className="widget-title" id="brochure-title">Download Our Brochures</h4>
-                <div className="download-wrap">
-                  <a
-                    href="../../../assets/img/services/water-damage-services-brochure.pdf"
-                    download
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download Water Damage Services Brochure"
-                  >
-                    <i className="fas fa-cloud-download-alt"></i>Water Damage Services Brochure
-                  </a>
-                  <a
-                    href="../../../assets/img/services/water-damage-guide.pdf"
-                    download
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download Complete Water Damage Guide"
-                  >
-                    <i className="fas fa-file-pdf"></i>Complete Water Damage Guide
-                  </a>
-                </div>
+                <FreeQuoteForm subject="New Quote Request for Water Damage" /> {/* Pasa el subject específico para Water Damage */}
               </div>
             </aside>
           </div>

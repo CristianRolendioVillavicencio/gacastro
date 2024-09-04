@@ -2,7 +2,7 @@
 	01. Hero Section
 ===============================*/
 .financing-hero-section {
-  padding: 75px 0; 
+  padding: 75px 0;
   margin-bottom: 75px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .financing-hero-content h1 span {
-  color: #ff3366; /* Ajusta el color según sea necesario */
+  color: #faa819; /* Ajusta el color según sea necesario */
 }
 
 .financing-hero-content p {
@@ -121,15 +121,15 @@
 /* Media queries para pantallas más pequeñas */
 @media (max-width: 768px) {
   .banner img {
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
   }
 }
 
 .how-hearth-works-section {
   padding: 50px 0;
   padding-bottom: 100px;
-  background: linear-gradient(11deg, #fff  25%, #FAA819 50%);
+  background: linear-gradient(11deg, #fff 25%, #faa819 50%);
   color: #fff;
 }
 
@@ -168,7 +168,7 @@
 .hearth-image img {
   max-width: 40%; /* Ajusta este valor según sea necesario para hacer la imagen más pequeña */
   border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.0);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
 }
 
 .hearth-steps {
@@ -179,10 +179,10 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .step-number {
@@ -206,41 +206,41 @@
 
 /* Media queries para hacer la sección responsiva */
 @media (max-width: 992px) {
-  .right-half, .left-half {
-      padding: 10px;
+  .right-half,
+  .left-half {
+    padding: 10px;
   }
 
   .step-content h3 {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .step-content p {
-      font-size: 14px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 768px) {
   .section-title {
-      font-size: 28px;
+    font-size: 28px;
   }
 
   .section-subtitle {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   .step-number {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .step-content h3 {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .step-content p {
-      font-size: 12px;
+    font-size: 12px;
   }
 }
-
 
 /*=============================
     03. Banner
@@ -294,7 +294,7 @@
 .new-banner-button {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #FAA819; /* Fondo del botón */
+  background-color: #faa819; /* Fondo del botón */
   color: white; /* Texto blanco */
   text-transform: uppercase;
   text-decoration: none;

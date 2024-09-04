@@ -1,4 +1,5 @@
 import React from "react";
+import FreeQuoteForm from '../../../forms/FreeQuoteForm'; // Importa el componente de formulario
 
 function CopperServices() {
   return (
@@ -144,7 +145,6 @@ function CopperServices() {
               <div className="services-widget">
                 <div className="our-services-list">
                   <ul className="list-wrap">
-                    
                     <li>
                       <a href="/services/roofing-services" aria-label="Link to roofing services">
                         Roofing Services
@@ -184,68 +184,7 @@ function CopperServices() {
                 aria-labelledby="get-quote-title"
               >
                 <h4 className="widget-title" id="get-quote-title">Get a Free Quote</h4>
-                <form action="#" className="sidebar-form" aria-label="Contact form">
-                  <div className="form-grp">
-                    <input id="name" type="text" placeholder="Your Name" aria-label="Enter your name" />
-                  </div>
-                  <div className="form-grp">
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder="Your Email Address"
-                      aria-label="Enter your email address"
-                    />
-                  </div>
-                  <div className="form-grp">
-                    <input
-                      id="phone"
-                      type="tel"
-                      placeholder="Your Phone Number"
-                      aria-label="Enter your phone number"
-                    />
-                  </div>
-                  <div className="form-grp">
-                    <input
-                      id="address"
-                      type="text"
-                      placeholder="Your Address"
-                      aria-label="Enter your address"
-                    />
-                  </div>
-                  <div className="form-grp">
-                    <textarea
-                      id="message"
-                      placeholder="Your Message"
-                      aria-label="Enter your message"
-                    ></textarea>
-                  </div>
-                  <button type="submit" className="btn btn-two" aria-label="Submit contact form">
-                    Contact Us
-                  </button>
-                </form>
-              </div>
-              <div className="services-widget">
-                <h4 className="widget-title" id="brochure-title">Download Our Brochures</h4>
-                <div className="download-wrap">
-                  <a
-                    href="../../../assets/img/services/copper-services-brochure.pdf"
-                    download
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download Copper Services Brochure"
-                  >
-                    <i className="fas fa-cloud-download-alt"></i>Copper Services Brochure
-                  </a>
-                  <a
-                    href="../../../assets/img/services/copper-guide.pdf"
-                    download
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download Complete Copper Guide"
-                  >
-                    <i className="fas fa-file-pdf"></i>Complete Copper Guide
-                  </a>
-                </div>
+                <FreeQuoteForm subject="New Quote Request for Copper" /> {/* Pasa el subject específico para Copper */}
               </div>
             </aside>
           </div>

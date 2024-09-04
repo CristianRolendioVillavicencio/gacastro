@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import { v4 as uuidv4 } from 'uuid';
 import './HeroCarousel.css';
-
+import bannerImage3 from '../../assets/img/herocarusel/Aspahlt-Shingle-Roof-Services.png';
 import bannerImage from '../../assets/img/herocarusel/cooper-services.png';
 import bannerImage1 from '../../assets/img/herocarusel/roof-services.png';
 import bannerImage2 from '../../assets/img/herocarusel/siding-services.png';
-import bannerGif from '../../assets/img/herocarusel/getquote.gif';
+import bannerGif from '../../assets/img/herocarusel/getquote1.gif';
+import bannerImage4 from '../../assets/img/herocarusel/Financing-Services.png';
 
 const slidesData = [
     {
@@ -17,38 +18,68 @@ const slidesData = [
         text: <>Simply enter your address to receive an instant quote on the cost of replacing your roof. Our easy-to-use tool provides accurate estimates based on your location and roof size.</>,
         buttonText: 'Get Instant Roof Quote!',
         url: 'https://app.gorillaroofleads.com/home?dealer_unique_id=35051070e572e47d2c26c241ab88307f',
-        duration: 7000 // Duración del gif en milisegundos (7 segundos)
+        duration: 7000, // Duración del gif en milisegundos (7 segundos)
+        textPosition: 'right' // Posición del texto
     },
     {
         id: uuidv4(),
         image: bannerImage1,
         title: <><span className="keyword-highlight">Roofing</span> Services</>,
         subtitle: <>Quality Roof Installations</>,
-        text: <>Our team provides top-notch <span className="keyword-highlight">roofing services</span> to ensure your home is protected. Whether you're dealing with <span className="keyword-highlight">roof leaks</span>, <span className="keyword-highlight">storm damage</span>, or need a <span className="keyword-highlight">new roof</span>, we offer reliable and affordable solutions.</>,
+        text: <>Our team provides top-notch roofing services to ensure <br />your home is protected. Whether you're dealing with <br /> roof leaks, storm damage, or need a new roof, we offer <br />reliable and affordable solutions.</>,
         buttonText: 'Learn More About Roofing',
         url: '/services/roofing-services',
-        duration: 4000 // Duración de los otros slides en milisegundos
+        duration: 7000, // Duración de los otros slides en milisegundos
+        textPosition: 'right' // Posición del texto
     },
     {
         id: uuidv4(),
         image: bannerImage2,
         title: <><span className="keyword-highlight">Siding</span> Services</>,
         subtitle: <>Enhance Your Home's Exterior</>,
-        text: <>Upgrade your home with our professional <span className="keyword-highlight">siding services</span>. Improve your home's curb appeal and <span className="keyword-highlight">energy efficiency</span> with durable and attractive <span className="keyword-highlight">siding options</span>.</>,
+        text: <>Upgrade your home with our professional <span className="keyword-highlight">siding services</span>. Improve your home's curb appeal and <span className="keyword-highlight">energy efficiency</span> <br /> with durable and attractive <span className="keyword-highlight">siding options</span>.</>,
         buttonText: 'Explore Siding Options',
         url: '/services/siding-services',
-        duration: 4000
+        duration: 7000,
+        textPosition: 'right' // Posición del texto
     },
     {
         id: uuidv4(),
         image: bannerImage,
         title: <><span className="keyword-highlight">Copper Services</span> </>,
         subtitle: <>Enhance Your Home's Exterior</>,
-        text: <><span className="keyword-highlight">Copper Services</span> offers premium <span className="keyword-highlight">roofing</span>, <span className="keyword-highlight">siding</span>, and <span className="keyword-highlight">home renovations</span>. Our high-quality <span className="keyword-highlight">copper materials</span> add beauty and durability to your home.</>,
+        text: <><span className="keyword-highlight">Copper Services</span> offers premium <span className="keyword-highlight">roofing</span>, siding, <br />and home renovations. Our high-quality <span className="keyword-highlight"><br />copper materials</span> add beauty and durability to your <br /> home. </>,
         buttonText: 'Explore Copper Services',
         url: '/services/copper-services',
-        duration: 4000
+        duration: 7000,
+        textPosition: 'left' // Posición del texto    
+    },
+    {
+        id: uuidv4(),
+        image: bannerImage4,
+        title: <><span className="keyword-highlight">Financing</span> Services</>,
+        subtitle: <>Make Your Dream Home a Reality</>,
+        text: <>Our <span className="keyword-highlight">Financing Services</span> make it easier for you to <br /> afford the home improvements you need. <br />Whether it’s a new roof, siding, or other renovations, <br />we offer flexible financing options to fit your budget <br />and help you achieve your goals.</>,
+        buttonText: 'Learn More About Financing',
+        url: '/financing',
+        duration: 7000,
+        textPosition: 'left' // Posición del texto
+    },
+    
+    {
+        id: uuidv4(),
+        image: bannerImage3,
+        title: <>Asphalt Shingle Roof Services</>,
+        subtitle: <>Reliable Installation for Your Home</>,
+        text: <>Trust our expert team to install durable <span className="keyword-highlight">asphalt shingles</span> <br />that enhance your home’s protection and appearance. Choose from a variety of styles to suit your needs.</>,
+        buttonText: 'Explore Asphalt Shingle Options',
+        url: '/services/asphalt-shingle-roof-services',
+        duration: 7000,
+        textPosition: 'left' // Posición del texto
     }
+    
+    
+    
 ];
 
 const HeroCarousel = () => {
@@ -113,7 +144,7 @@ const HeroCarousel = () => {
                         ) : (
                             <img src={slide.image} alt={slide.title} className="banner-image" />
                         )}
-                        <div className="text-container">
+                        <div className={`text-container ${slide.textPosition}`}>
                             <h2 className="main-phrase">{slide.title}</h2>
                             <h3 className="sub-phrase">{slide.subtitle}</h3>
                             <p>{slide.text}</p>

@@ -196,7 +196,7 @@ function FooterOne() {
             <div className="row">
               <div className="col-md-6">
                 <div className="copyright-text">
-                  <p>© Copyright 2023. All Right Reserved</p>
+                  <p>© Ga Castro Construction LLC - Copyright 2024. All Right Reserved</p>
                 </div>
               </div>
               <div className="col-md-6">

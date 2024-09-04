@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import QuoteForm from '../forms/QuoteForm'; // Asegúrate de que la ruta es correcta
 
 function MainWid() {
   const [selectedCity, setSelectedCity] = useState("Stamford");
-  const [consent, setConsent] = useState(false);
-  const [showWarning, setShowWarning] = useState(false);
 
   const contactInfo = {
     Stamford: {
@@ -24,25 +23,8 @@ function MainWid() {
     setSelectedCity(city);
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    if (!consent) {
-      setShowWarning(true);
-    } else {
-      setShowWarning(false);
-      // Aquí puedes manejar el envío del formulario
-    }
-  };
-
-  const handleConsentChange = () => {
-    setConsent(!consent);
-    if (showWarning && !consent) {
-      setShowWarning(false);
-    }
-  };
-
   return (
-    <section  className="contact-area pt-120 pb-120">
+    <section className="contact-area pt-120 pb-120">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-6 col-lg-10">
@@ -101,7 +83,7 @@ function MainWid() {
             </div>
           </div>
           <div className="col-xl-6 col-lg-10">
-            <div id = "aqui"
+            <div
               className="contact-form-wrap"
               style={{
                 backgroundImage: `url(${require("../../assets/img/images/contact_form_bg.jpg")})`,
@@ -109,83 +91,7 @@ function MainWid() {
             >
               <h2 className="title">Get a FREE Estimate</h2>
               <p>Fill out the form below to have Ga Castro Construction contact you shortly, or call 1-800-838-8186 to contact Ga Castro Construction.</p>
-              <form onSubmit={handleFormSubmit} className="contact-form">
-                <div className="row">
-                  <div className="col-md-12">
-                    <div className="form-grp">
-                      <input
-                        id="fullName"
-                        type="text"
-                        placeholder="*Full name"
-                        style={{ height: '50px' }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="form-grp">
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="*Email address"
-                        style={{ height: '50px' }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-grp">
-                      <input
-                        id="phone"
-                        type="text"
-                        placeholder="*Phone number"
-                        style={{ height: '50px' }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-grp">
-                      <input
-                        id="city"
-                        type="text"
-                        placeholder="*Your City"
-                        style={{ height: '50px' }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="form-grp">
-                      <input
-                        id="address"
-                        type="text"
-                        placeholder="*Address home"
-                        style={{ height: '50px' }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="form-grp">
-                      <textarea
-                        id="message"
-                        placeholder="*Message"
-                        style={{ minHeight: '100px', maxHeight: '200px', borderRadius: '10px' }}
-                      ></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div className="form-grp">
-                  <label>
-                    <input type="checkbox" id="consent" checked={consent} onChange={handleConsentChange} />
-                    I agree that GA Castro Construction LLC contact me by phone or emails.
-                  </label>
-                </div>
-                {showWarning && (
-                  <p style={{ color: 'red' }}>*You must accept the terms and conditions</p>
-                )}
-                <div className="form-grp">
-                  <button className="btn centered" type="submit">
-                    Send Information
-                  </button>
-                </div>
-              </form>
+              <QuoteForm /> {/* Integración del nuevo formulario */}
             </div>
           </div>
         </div>

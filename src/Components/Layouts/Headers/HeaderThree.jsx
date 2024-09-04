@@ -40,36 +40,7 @@ function HeaderThree({ className = "menu-area-three" }) {
             </div>
             <div className="col-xl-4 col-lg-3">
               <div className="header-top-right">
-                <div className="header-lang">
-                  <div className="dropdown">
-                    <button
-                      className="dropdown-toggle"
-                      type="button"
-                      id="dropdownMenuButton1"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <img
-                        src={require(`../../../assets/img/icon/united-states.jpg`)}
-                        alt="US Flag"
-                      />{" "}
-                      English
-                    </button>
-                    <div
-                      className="dropdown-menu"
-                      aria-labelledby="dropdownMenuButton1"
-                    >
-                      <a className="dropdown-item" href="/">
-                        <img
-                          src={require(`../../../assets/img/icon/russia.jpg`)}
-                          alt="Russia Flag"
-                        />
-                        Spanish
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                
                 <div className="header-social">
                   <ul className="list-wrap">
                     <li><a href="https://www.facebook.com/roofinggcastro/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={['fab', 'facebook']} /></a></li>
@@ -138,14 +109,10 @@ function HeaderThree({ className = "menu-area-three" }) {
                       <li className="menu-item-has-children help-menu">
                         <a href="#">Help</a>
                         <ul className="sub-menu">
-                        <li><a href="/Faqs">Frequently Asked Questions</a></li>
-                          <li><a href="/contact">Contact</a></li>
+                          <li><a href="/Faqs">Frequently Asked Questions</a></li>
                           <li><a href="/areas-of-service">Service Areas</a></li>
+                          <li><a href="/contact">Contact</a></li>
                           <li><a href="/about">About us</a></li>
-                          <li><a href="/project-details">Project Details</a></li>
-                          <li><a href="/team">Our Team</a></li>
-                          <li><a href="/team-details">Team Details</a></li>
-                          <li><a href="/error">404 Error</a></li>
                         </ul>
                       </li>
                       <li >
@@ -210,13 +177,10 @@ function HeaderThree({ className = "menu-area-three" }) {
                       <li className="menu-item-has-children help-menu">
                         <a href="#">Help</a>
                         <ul className="sub-menu">
-                          <li><a href="/contact">Contact</a></li>
+                          <li><a href="/Faqs">Frequently Asked Questions</a></li>
                           <li><a href="/areas-of-service">Service Areas</a></li>
+                          <li><a href="/contact">Contact</a></li>
                           <li><a href="/about">About us</a></li>
-                          <li><a href="/project-details">Project Details</a></li>
-                          <li><a href="/team">Our Team</a></li>
-                          <li><a href="/team-details">Team Details</a></li>
-                          <li><a href="/error">404 Error</a></li>
                         </ul>
                         <div className="dropdown-btn">
                           <span className="fas fa-angle-down"></span>

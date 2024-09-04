@@ -25,7 +25,7 @@ export default function   GalleryPage() {
   const buttonStyle = {
     backgroundColor: "#FAA819",  // Color rojo inicial
     color: "white",
-    padding: "10px 20px",
+    padding: "10px 30px",
     border: "none",
     borderRadius: "25px",
     textAlign: "center",
@@ -55,6 +55,34 @@ export default function   GalleryPage() {
           onClick={() => setFilter("all")}
         >
           All
+        </button>
+        <button
+          type="button"
+          style={getButtonStyle("roofing")}
+          onMouseEnter={() => setHoveredButton("roofing")}
+          onMouseLeave={() => setHoveredButton(null)}
+          onClick={() => setFilter("roofing")}
+        >
+          Roofing
+        </button>
+        
+        <button
+          type="button"
+          style={getButtonStyle("siding")}
+          onMouseEnter={() => setHoveredButton("siding")}
+          onMouseLeave={() => setHoveredButton(null)}
+          onClick={() => setFilter("siding")}
+        >
+          Siding
+        </button>
+        <button
+          type="button"
+          style={getButtonStyle("copper")}
+          onMouseEnter={() => setHoveredButton("copper")}
+          onMouseLeave={() => setHoveredButton(null)}
+          onClick={() => setFilter("copper")}
+        >
+          Copper
         </button>
         <button
           type="button"
