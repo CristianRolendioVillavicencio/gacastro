@@ -65,11 +65,11 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Sirve archivos estáticos del frontend (por ejemplo, una app React)
-app.use(express.static(path.join(__dirname, "build"))); // Cambia "build" por el nombre de la carpeta de tu frontend
+app.use(express.static(path.join(__dirname, "build"))); // Asegúrate de que esta ruta esté correcta y que la carpeta 'build' exista y contenga los archivos del frontend
 
 // Ruta para servir el frontend (React, Angular, etc.)
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "build", "index.html")); // Cambia "build" por la carpeta donde está tu index.html
+    res.sendFile(path.join(__dirname, "build", "index.html")); // Asegúrate de que 'index.html' esté en la carpeta 'build'
 });
 
 // Iniciar el servidor
