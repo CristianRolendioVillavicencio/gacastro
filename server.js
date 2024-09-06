@@ -50,7 +50,7 @@ app.post("/send-email", async (req, res) => {
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER, // Puedes cambiar esto a otra dirección si lo necesitas
+        to: process.env.EMAIL_USER, // Cambia esto si deseas enviar a otro correo
         subject: subject || "New Request", // Usa el subject recibido o un valor por defecto
         text: emailContent,
     };
@@ -59,8 +59,12 @@ app.post("/send-email", async (req, res) => {
         await transporter.sendMail(mailOptions);
         res.status(200).json({ success: true });
     } catch (error) {
-        console.error("Error sending email:", error);
-        res.status(500).json({ error: "Failed to send email" });
+        // Captura y muestra errores detallados
+        console.error("Error sending email:", error.message);
+        if (error.response) {
+            console.error("SMTP Response:", error.response);
+        }
+        res.status(500).json({ error: "Failed to send email", details: error.message });
     }
 });
 
