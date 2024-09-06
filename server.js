@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,16 +11,11 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-// Ruta para la raíz "/"
-app.get("/", (req, res) => {
-    res.send("Servidor funcionando correctamente.");
-});
-
 // Configuración del transporte de Nodemailer
 const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
-    secure: false,
+    secure: false, // Usar true para puertos seguros (465), false para otros
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -66,6 +62,14 @@ app.post("/send-email", async (req, res) => {
         }
         res.status(500).json({ error: "Failed to send email", details: error.message });
     }
+});
+
+// Sirve archivos estáticos del frontend (por ejemplo, una app React)
+app.use(express.static(path.join(__dirname, "build"))); // Cambia "build" por el nombre de la carpeta de tu frontend
+
+// Ruta para servir el frontend (React, Angular, etc.)
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "build", "index.html")); // Cambia "build" por la carpeta donde está tu index.html
 });
 
 // Iniciar el servidor
