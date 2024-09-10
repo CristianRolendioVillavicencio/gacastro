@@ -6,7 +6,6 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware para parsear JSON y manejar CORS
 app.use(express.json());
 app.use(cors());
 
@@ -14,7 +13,7 @@ app.use(cors());
 const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
-    secure: false, // true para puertos seguros (465), false para otros
+    secure: false,
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -28,6 +27,11 @@ transporter.verify((error) => {
     } else {
         console.log("SMTP server is ready to send emails.");
     }
+});
+
+// Ruta para la página principal
+app.get("/", (req, res) => {
+    res.send("Welcome to Castro Construction API");
 });
 
 // Ruta para recibir datos del formulario y enviar el correo
