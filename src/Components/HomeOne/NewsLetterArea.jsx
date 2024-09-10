@@ -1,165 +1,89 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function NewsLetterArea() {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
   const [isPhoneValid, setIsPhoneValid] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
-  const [formStatus, setFormStatus] = useState(null);
-  const [showWarning, setShowWarning] = useState(false);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    if (!isPhoneValid || !phone || !fullName || !email || !address) {
-      setShowWarning(true);
-    } else {
-      setShowWarning(false);
-      setIsLoading(true);
-
-      // Preparar datos del formulario para enviar al backend
-      const formData = {
-        fullName,
-        email,
-        phone,
-        address,
-        message: "Request from NewsLetter Form",
-        subject: "New Subscription Request from Website",
-      };
-
-      fetch("/api/sendEmail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setIsLoading(false);
-          if (data.success) {
-            setFormStatus("success");
-            setFullName("");
-            setEmail("");
-            setPhone("");
-            setAddress("");
-          } else {
-            setFormStatus("error");
-          }
-        })
-        .catch(() => {
-          setIsLoading(false);
-          setFormStatus("error");
-        });
-    }
+  // Mueve la definición de formatPhoneNumber antes de su uso
+  const formatPhoneNumber = (value) => {
+    // Formato del número de teléfono como (XXX) XXX-XXXX
+    const areaCode = value.substring(0, 3);
+    const middle = value.substring(3, 6);
+    const last = value.substring(6, 10);
+    if (value.length > 6) {
+      return `(${areaCode}) ${middle}-${last}`;
+    } if (value.length > 3) {
+      return `(${areaCode}) ${middle}`;
+    } 
+      return `(${areaCode}`;
+    
   };
 
   const handlePhoneChange = (e) => {
-    const { value } = e.target;
-    const phoneRegex = /^[0-9\b]+$/; // Solo números
-    if (value === "" || phoneRegex.test(value)) {
-      setPhone(value);
-      setIsPhoneValid(value.length >= 10); // Al menos 10 dígitos para ser válido
+    const value = e.target.value.replace(/[^0-9]/g, ""); // Remueve caracteres no numéricos
+    if (value.length <= 10) {
+      setPhone(formatPhoneNumber(value));
+      setIsPhoneValid(value.length === 10);
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    // Enviar los datos al backend
+    fetch('/api/sendEmail', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: e.target.email.value,
+        phone,
+      }),
+    })
+      .then(response => {
+        if (response.ok) {
+          toast.success("Your message has been sent successfully!");
+          e.target.reset(); // Limpia el formulario después de enviar
+        } else {
+          toast.error("There was an error sending your message. Please try again.");
+        }
+      })
+      .catch(() => {
+        toast.error("There was an error sending your message. Please try again.");
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
+
   return (
-    <section
-      className="newsletter-area jarallax newsletter-bg"
-      style={{
-        backgroundImage: `url(${require("../../assets/img/bg/newsletter_bg.jpg")})`,
-      }}
-    >
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-xl-5">
-            <div className="newsletter-content">
-              <div className="section-title white-title-two tg-heading-subheading animation-style3">
-                <span className="sub-title tg-element-title">
-                  Quality Roofing Contact Form
-                </span>
-                <h2 className="title tg-element-title">
-                  Need Roofing Any Services?
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-7">
-            <div className="newsletter-form">
-              <form onSubmit={handleFormSubmit}>
-                <div className="form-grp">
-                  <input
-                    type="text"
-                    name="fullName"
-                    placeholder="Full Name*"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    required
-                  />
-                </div>
-                <div className="form-grp">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email*"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <div className="form-grp">
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Phone*"
-                    value={phone}
-                    onChange={handlePhoneChange}
-                    required
-                  />
-                  {!isPhoneValid && (
-                    <p style={{ color: "red" }}>
-                      * Please enter a valid phone number with at least 10 digits.
-                    </p>
-                  )}
-                </div>
-                <div className="form-grp">
-                  <input
-                    type="text"
-                    name="address"
-                    placeholder="Address*"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    required
-                  />
-                </div>
-                {showWarning && (
-                  <p style={{ color: "red" }}>* Please fill all fields correctly.</p>
-                )}
-                <button type="submit" className="btn btn-two" disabled={isLoading}>
-                  {isLoading ? "Sending..." : "Submit Now"}
-                </button>
-              </form>
-              {isLoading && (
-                <p style={{ color: "blue", marginTop: "10px" }}>
-                  Please wait while we send your message...
-                </p>
-              )}
-              {formStatus === "success" && (
-                <p style={{ color: "green", marginTop: "10px" }}>
-                  Your message has been sent successfully!
-                </p>
-              )}
-              {formStatus === "error" && (
-                <p style={{ color: "red", marginTop: "10px" }}>
-                  There was an error sending your message. Please try again.
-                </p>
-              )}
-            </div>
-          </div>
+    <>
+      <section className="newsletter-area">
+        <div className="container">
+          <form onSubmit={handleSubmit}>
+            <input type="email" name="email" placeholder="Your Email*" required />
+            <input
+              type="text"
+              name="phone"
+              placeholder="(475) 257-0243"
+              value={phone}
+              onChange={handlePhoneChange}
+              required
+            />
+            {!isPhoneValid && <p style={{ color: "red" }}>Please enter a valid 10-digit phone number.</p>}
+            <button type="submit" disabled={isSending}>
+              {isSending ? "Sending..." : "Subscribe"}
+            </button>
+          </form>
         </div>
-      </div>
-    </section>
+      </section>
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
+    </>
   );
 }
 
