@@ -63,23 +63,31 @@ function NewsLetterArea() {
 
   return (
     <>
-      <section className="newsletter-area">
+      {/* Aquí mantiene tu diseño original del formulario */}
+      <section className="newsletter-area pt-100 pb-100">
         <div className="container">
-          <form onSubmit={handleSubmit}>
-            <input type="email" name="email" placeholder="Your Email*" required />
-            <input
-              type="text"
-              name="phone"
-              placeholder="(475) 257-0243"
-              value={phone}
-              onChange={handlePhoneChange}
-              required
-            />
-            {!isPhoneValid && <p style={{ color: "red" }}>Please enter a valid 10-digit phone number.</p>}
-            <button type="submit" disabled={isSending}>
-              {isSending ? "Sending..." : "Subscribe"}
-            </button>
-          </form>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <form onSubmit={handleSubmit} className="newsletter-form">
+                  <input type="email" name="email" placeholder="Your Email*" required />
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="(475) 257-0243"
+                    value={phone}
+                    onChange={handlePhoneChange}
+                    required
+                  />
+                  {!isPhoneValid && <p style={{ color: "red" }}>Please enter a valid 10-digit phone number.</p>}
+                  <button type="submit" disabled={isSending}>
+                    {isSending ? "Sending..." : "Subscribe"}
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
