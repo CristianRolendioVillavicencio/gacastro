@@ -26,7 +26,7 @@ function AppointmentForm() {
       };
 
       // Envía los datos al backend de Node.js
-      fetch("https://castroconstruction-a6426ebdb470.herokuapp.com/send-email", {
+      fetch("/api/AppointmentForm", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

@@ -26,7 +26,7 @@ function QuoteForm() {
         subject: "New Quote Request",
       };
 
-      fetch("https://castroconstruction-a6426ebdb470.herokuapp.com/send-email", {
+      fetch("/api/QuoteForm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
