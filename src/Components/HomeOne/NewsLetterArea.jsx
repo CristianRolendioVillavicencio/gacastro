@@ -28,7 +28,7 @@ function NewsLetterArea() {
         subject: "New Subscription Request from Website",
       };
 
-      fetch("http://localhost:3000/send-email", {
+      fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
