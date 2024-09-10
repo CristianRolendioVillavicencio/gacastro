@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -29,9 +30,12 @@ transporter.verify((error) => {
     }
 });
 
-// Ruta para la página principal
+// Servir los archivos estáticos de React
+app.use(express.static(path.join(__dirname, "build")));
+
+// Ruta para la página principal, sirve el archivo index.html de React
 app.get("/", (req, res) => {
-    res.send("Welcome to Castro Construction API");
+    res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 // Ruta para recibir datos del formulario y enviar el correo
