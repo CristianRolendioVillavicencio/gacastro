@@ -1,109 +1,143 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 
-function FreeQuoteForm({ subject }) { // Recibe el subject como prop
-  const [isSending, setIsSending] = useState(false);
-  const [honeypot, setHoneypot] = useState(''); // Campo honeypot para protección contra bots
-  const [phone, setPhone] = useState("");
-  const [isPhoneValid, setIsPhoneValid] = useState(true);
+function AppointmentForm() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [formStatus, setFormStatus] = useState(null);
+  const [consent, setConsent] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
 
-  // Mover la función formatPhoneNumber antes de su uso
-  const formatPhoneNumber = (value) => {
-    // Formato del número de teléfono como (XXX) XXX-XXXX
-    const areaCode = value.substring(0, 3);
-    const middle = value.substring(3, 6);
-    const last = value.substring(6, 10);
-    if (value.length > 6) {
-      return `(${areaCode}) ${middle}-${last}`;
-    } if (value.length > 3) {
-      return `(${areaCode}) ${middle}`;
-    } 
-      return `(${areaCode}`;
-    
-  };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!consent) {
+      setShowWarning(true);
+    } else {
+      setShowWarning(false);
+      setIsLoading(true);
 
-  const handlePhoneChange = (e) => {
-    const value = e.target.value.replace(/[^0-9]/g, ""); // Remueve caracteres no numéricos
-    if (value.length <= 10) {
-      setPhone(formatPhoneNumber(value));
-      setIsPhoneValid(value.length === 10);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Evita el envío predeterminado del formulario
-
-    if (honeypot !== '') {
-      // Si el honeypot está lleno, asumimos que es un bot y no enviamos el formulario
-      toast.error("Error: Invalid submission.");
-      return;
-    }
-
-    setIsSending(true); // Cambia el estado para indicar que se está enviando
-
-    // Enviar los datos al backend de Node.js
-    fetch('/api/sendEmail', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+      // Captura los datos del formulario
+      const formData = {
         name: e.target.name.value,
-        email: e.target.email.value,
-        phone,
-        address: e.target.address.value,
+        phone: e.target.phone.value,
+        location: e.target.location.value,
+        date: e.target.date.value,
+        time: e.target.time.value,
         message: e.target.message.value,
-        subject, // Sintaxis abreviada para subject
-      }),
-    })
-      .then(response => {
-        if (response.ok) {
-          toast.success("Your message has been sent successfully!");
-          e.target.reset(); // Limpia el formulario después de enviar
-        } else {
-          toast.error("There was an error sending your message. Please try again.");
-        }
+        subject: "New Appointment From The Web",
+      };
+
+      // Envía los datos al backend de Node.js
+      fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
-      .catch(() => {
-        toast.error("There was an error sending your message. Please try again.");
-      })
-      .finally(() => {
-        setIsSending(false); // Cambia el estado para indicar que el envío ha terminado
-      });
+        .then(response => response.json())
+        .then(data => {
+          setIsLoading(false);
+          if (data.success) {
+            setFormStatus("success");
+            e.target.reset();  // Resetea el formulario después de enviarlo
+          } else {
+            setFormStatus("error");
+          }
+        })
+        .catch(() => {
+          setIsLoading(false);
+          setFormStatus("error");
+        });
+    }
+  };
+
+  const handleConsentChange = () => {
+    setConsent(!consent);
+    if (showWarning && !consent) {
+      setShowWarning(false);
+    }
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="sidebar-form" aria-label="Contact form">
-        {/* Campo Honeypot oculto */}
-        <input
-          type="text"
-          name="honeypot"
-          value={honeypot}
-          onChange={(e) => setHoneypot(e.target.value)}
-          style={{ display: 'none' }}
-        />
-        <input type="text" name="name" placeholder="Your Name*" required />
-        <input type="email" name="email" placeholder="Your Email*" required />
-        <input
-          type="text"
-          name="phone"
-          placeholder="(475) 257-0243"
-          value={phone}
-          onChange={handlePhoneChange}
-          required
-        />
-        {!isPhoneValid && <p style={{ color: "red" }}>Please enter a valid 10-digit phone number.</p>}
-        <input type="text" name="address" placeholder="Address*" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit" className="btn btn-two" disabled={isSending}>
-          {isSending ? "Sending..." : "Submit Now"}
-        </button>
-      </form>
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
-    </>
+    <section className="appointment-area-two pb-80">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div
+              className="appointment-inner-two tg-heading-subheading animation-style3"
+              style={{
+                backgroundImage: `url(${require("../../assets/img/bg/appointment_bg.jpg")})`,
+              }}
+            >
+              <h2 className="title tg-element-title">Book Your Appointment</h2>
+              <form onSubmit={handleFormSubmit}>
+                <div className="row">
+                  <div className="col-lg-4">
+                    <div className="form-grp">
+                      <input type="text" name="name" placeholder="Your Name" required />
+                    </div>
+                  </div>
+                  <div className="col-lg-4">
+                    <div className="form-grp">
+                      <input type="text" name="phone" placeholder="Phone" required />
+                    </div>
+                  </div>
+                  <div className="col-lg-4">
+                    <div className="form-grp">
+                      <input type="text" name="location" placeholder="Location" required />
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="form-grp">
+                      <label htmlFor="appointment-date">Select Date:</label>
+                      <input type="date" id="appointment-date" name="date" required />
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="form-grp">
+                      <label htmlFor="appointment-time">Select Time:</label>
+                      <input type="time" id="appointment-time" name="time" required />
+                    </div>
+                  </div>
+                  <div className="col-lg-12">
+                    <div className="form-grp">
+                      <textarea name="message" placeholder="Message" required></textarea>
+                    </div>
+                  </div>
+                  <div className="col-lg-12">
+                    <div className="form-grp checkbox-container">
+                      <input
+                        type="checkbox"
+                        id="consent"
+                        checked={consent}
+                        onChange={handleConsentChange}
+                        required
+                      />
+                      <label htmlFor="consent">I agree that GA Castro Construction LLC contact me by phone or emails.</label>
+                    </div>
+                    {showWarning && (
+                      <p style={{ color: 'red' }}>*You must accept the terms and conditions</p>
+                    )}
+                    <button type="submit" className="btn" disabled={isLoading}>
+                      {isLoading ? "Sending..." : "Book for Inspection"}
+                    </button>
+                  </div>
+                </div>
+              </form>
+              {isLoading && (
+                <p style={{ color: 'blue', marginTop: '10px' }}>Please wait while we send your message...</p>
+              )}
+              {formStatus === "success" && (
+                <p style={{ color: 'green', marginTop: '10px' }}>Your message has been sent successfully!</p>
+              )}
+              {formStatus === "error" && (
+                <p style={{ color: 'red', marginTop: '10px' }}>There was an error sending your message. Please try again.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
-export default FreeQuoteForm;
+export default AppointmentForm;
