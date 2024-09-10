@@ -30,12 +30,12 @@ transporter.verify((error) => {
     }
 });
 
-// Servir los archivos estáticos de React
-app.use(express.static(path.join(__dirname, "build")));
+// Servir los archivos estáticos de React desde la carpeta 'build'
+app.use(express.static(path.join(__dirname, "../build")));
 
 // Ruta para la página principal, sirve el archivo index.html de React
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
 
 // Ruta para recibir datos del formulario y enviar el correo
