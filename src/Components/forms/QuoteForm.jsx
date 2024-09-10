@@ -26,7 +26,7 @@ function QuoteForm() {
         subject: "New Quote Request",
       };
 
-      fetch("/api/QuoteForm", {
+      fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

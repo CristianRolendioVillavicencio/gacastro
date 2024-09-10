@@ -26,7 +26,7 @@ function AppointmentForm() {
       };
 
       // Envía los datos al backend de Node.js
-      fetch("/api/AppointmentForm", {
+      fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

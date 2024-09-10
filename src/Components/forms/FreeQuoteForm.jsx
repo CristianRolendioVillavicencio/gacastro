@@ -18,7 +18,7 @@ function FreeQuoteForm({ subject }) { // Recibe el subject como prop
     setIsSending(true); // Cambia el estado para indicar que se está enviando
 
     // Enviar los datos al backend de Node.js
-    fetch('/api/AppointmentForm', {
+    fetch('/api/sendEmail', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
