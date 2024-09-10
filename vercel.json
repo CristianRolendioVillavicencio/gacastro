@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "api/index.js",
+            "src": "api/*.js",
             "use": "@vercel/node"
         },
         {
@@ -12,8 +12,16 @@
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
-            "dest": "/api/index.js"
+            "src": "/api/freeQuoteForm",
+            "dest": "/api/freeQuoteForm.js"
+        },
+        {
+            "src": "/api/quoteForm",
+            "dest": "/api/quoteForm.js"
+        },
+        {
+            "src": "/api/appointmentForm",
+            "dest": "/api/appointmentForm.js"
         },
         {
             "src": "/(.*)",
