@@ -5,6 +5,31 @@ import 'react-toastify/dist/ReactToastify.css';
 function FreeQuoteForm({ subject }) { // Recibe el subject como prop
   const [isSending, setIsSending] = useState(false);
   const [honeypot, setHoneypot] = useState(''); // Campo honeypot para protección contra bots
+  const [phone, setPhone] = useState("");
+  const [isPhoneValid, setIsPhoneValid] = useState(true);
+
+  // Mover la función formatPhoneNumber antes de su uso
+  const formatPhoneNumber = (value) => {
+    // Formato del número de teléfono como (XXX) XXX-XXXX
+    const areaCode = value.substring(0, 3);
+    const middle = value.substring(3, 6);
+    const last = value.substring(6, 10);
+    if (value.length > 6) {
+      return `(${areaCode}) ${middle}-${last}`;
+    } if (value.length > 3) {
+      return `(${areaCode}) ${middle}`;
+    } 
+      return `(${areaCode}`;
+    
+  };
+
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/[^0-9]/g, ""); // Remueve caracteres no numéricos
+    if (value.length <= 10) {
+      setPhone(formatPhoneNumber(value));
+      setIsPhoneValid(value.length === 10);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Evita el envío predeterminado del formulario
@@ -26,7 +51,7 @@ function FreeQuoteForm({ subject }) { // Recibe el subject como prop
       body: JSON.stringify({
         name: e.target.name.value,
         email: e.target.email.value,
-        phone: e.target.phone.value,
+        phone,
         address: e.target.address.value,
         message: e.target.message.value,
         subject, // Sintaxis abreviada para subject
@@ -58,56 +83,25 @@ function FreeQuoteForm({ subject }) { // Recibe el subject como prop
           value={honeypot}
           onChange={(e) => setHoneypot(e.target.value)}
           style={{ display: 'none' }}
-          aria-hidden="true"
         />
-
-        <div className="form-grp">
-          <input id="name" type="text" name="name" placeholder="Your Name" aria-label="Enter your name" required />
-        </div>
-        <div className="form-grp">
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Your Email Address"
-            aria-label="Enter your email address"
-            required
-          />
-        </div>
-        <div className="form-grp">
-          <input
-            id="phone"
-            type="tel"
-            name="phone"
-            placeholder="Your Phone Number"
-            aria-label="Enter your phone number"
-            required
-          />
-        </div>
-        <div className="form-grp">
-          <input
-            id="address"
-            type="text"
-            name="address"
-            placeholder="Your Address"
-            aria-label="Enter your address"
-            required
-          />
-        </div>
-        <div className="form-grp">
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Your Message"
-            aria-label="Enter your message"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" className="btn btn-two" aria-label="Submit contact form" disabled={isSending}>
-          {isSending ? "Sending..." : "Contact Us"}
+        <input type="text" name="name" placeholder="Your Name*" required />
+        <input type="email" name="email" placeholder="Your Email*" required />
+        <input
+          type="text"
+          name="phone"
+          placeholder="(475) 257-0243"
+          value={phone}
+          onChange={handlePhoneChange}
+          required
+        />
+        {!isPhoneValid && <p style={{ color: "red" }}>Please enter a valid 10-digit phone number.</p>}
+        <input type="text" name="address" placeholder="Address*" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" className="btn btn-two" disabled={isSending}>
+          {isSending ? "Sending..." : "Submit Now"}
         </button>
       </form>
-      <ToastContainer />
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
     </>
   );
 }
