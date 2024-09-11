@@ -1,7 +1,6 @@
 import React from "react";
 import HeaderThree from "../Layouts/Headers/HeaderThree";
 import FooterOne from "../Layouts/Footers/FooterOne";
-import NewsLetterArea from "../HomeOne/NewsLetterArea";
 import ServiceArea from "../HomeOne/ServiceArea";
 import DiscoverServices from "./DiscoverServices";
 import HistoryArea from "../About/HistoryArea";
@@ -16,8 +15,6 @@ function HomeThree() {
       <HeaderThree />
       <main>
       <HeroCarousel />
-      <NewsLetterArea />
-
         <ServiceArea/>
         <DiscoverServices />
         <HistoryArea />
