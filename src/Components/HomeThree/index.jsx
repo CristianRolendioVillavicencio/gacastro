@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderThree from "../Layouts/Headers/HeaderThree";
 import FooterOne from "../Layouts/Footers/FooterOne";
+import NewsLetterArea from "../HomeOne/NewsLetterArea";
 import ServiceArea from "../HomeOne/ServiceArea";
 import DiscoverServices from "./DiscoverServices";
 import HistoryArea from "../About/HistoryArea";
@@ -8,7 +9,6 @@ import ProjectArea from "./ProjectArea";
 import Reviews from "../Review/reviews";
 import BrandAreaWid from "../Common/BrandAreaWid";
 import HeroCarousel from "./HeroCarousel";
-import Newsletter from "../forms/NewsLetterArea";
 
 function HomeThree() {
   return (
@@ -16,7 +16,8 @@ function HomeThree() {
       <HeaderThree />
       <main>
       <HeroCarousel />
-      <Newsletter />
+      <NewsLetterArea />
+
         <ServiceArea/>
         <DiscoverServices />
         <HistoryArea />
