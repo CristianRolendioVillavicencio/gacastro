@@ -8,6 +8,7 @@ import ProjectArea from "./ProjectArea";
 import Reviews from "../Review/reviews";
 import BrandAreaWid from "../Common/BrandAreaWid";
 import HeroCarousel from "./HeroCarousel";
+import Newsletter from "../forms/NewsLetterArea";
 
 function HomeThree() {
   return (
@@ -15,6 +16,7 @@ function HomeThree() {
       <HeaderThree />
       <main>
       <HeroCarousel />
+      <Newsletter />
         <ServiceArea/>
         <DiscoverServices />
         <HistoryArea />
