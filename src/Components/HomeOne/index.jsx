@@ -9,7 +9,6 @@ import TeamArea from "./TeamArea";
 import FunFact from "./FunFact";
 import TestimonialArea from "./TestimonialArea";
 import Blogs from "./Blogs";
-import NewsLetterArea from "./NewsLetterArea";
 import FooterOne from "../Layouts/Footers/FooterOne";
 
 function HomeOne() {
@@ -26,7 +25,6 @@ function HomeOne() {
         <FunFact />
         <TestimonialArea />
         <Blogs />
-        <NewsLetterArea />
       </main>
       <FooterOne />
     </>
