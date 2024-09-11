@@ -5389,115 +5389,107 @@ label {
 	Newsletter Form Horizontal Design
 ===============================*/
 .newsletter-bg {
-  background-color: #111827;
-  padding: 40px 20px;
+  background-image: url('ruta/de/tu/imagen.jpg'); /* Ajusta la ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  padding: 50px 30px;
   border-radius: 10px;
-  color: #f9fafb;
-  max-width: 100%;
-  margin: 0 auto;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .section-title.white-title-two {
   flex: 1;
-  min-width: 250px;
+  min-width: 300px;
+  text-align: left;
+}
+
+.section-title.white-title-two .sub-title {
+  font-size: 16px;
+  color: #f1f1f1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .section-title.white-title-two .title {
+  font-size: 36px;
+  font-weight: 800;
   color: #ffffff;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.section-title.white-title-two .description {
-  color: #d1d5db;
-  font-size: 16px;
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .newsletter-form {
   display: flex;
   flex: 2;
-  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .newsletter-form .form-grp {
-  display: flex;
-  flex: 1;
-  min-width: 200px;
-  max-width: 300px;
+  flex: 1 1 150px;
+  max-width: 220px;
 }
 
-.newsletter-form .form-grp input,
-.newsletter-form .form-grp textarea {
+.newsletter-form .form-grp input {
   width: 100%;
-  font-size: 14px;
-  color: #374151;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
+  padding: 14px;
+  border: none;
   border-radius: 5px;
-  padding: 10px;
-  transition: border-color 0.3s ease;
+  background-color: #f3f4f6;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
-.newsletter-form .form-grp input::placeholder,
-.newsletter-form .form-grp textarea::placeholder {
-  color: #9ca3af;
+.newsletter-form .form-grp input::placeholder {
+  color: #6b7280;
 }
 
-.newsletter-form .form-grp input:focus,
-.newsletter-form .form-grp textarea:focus {
-  border-color: #3b82f6;
+.newsletter-form .form-grp input:focus {
   outline: none;
+  box-shadow: 0 0 0 2px #ffa500;
 }
 
 .newsletter-form button {
-  padding: 10px 20px;
-  background-color: #4b5563;
+  padding: 14px 20px;
+  background-color: #ff8c00;
   color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 14px;
-  font-weight: 600;
-  min-width: 100px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .newsletter-form button:hover {
-  background-color: #374151;
-}
-
-.newsletter-form button:disabled {
-  background-color: #9ca3af;
-  cursor: not-allowed;
+  background-color: #e07b00;
 }
 
 .privacy-text {
   font-size: 12px;
-  color: #9ca3af;
-  margin-top: 10px;
+  color: #d1d5db;
   flex-basis: 100%;
+  margin-top: 10px;
+  text-align: right;
 }
 
 .privacy-text a {
-  color: #60a5fa;
+  color: #f97316;
   text-decoration: underline;
-  transition: color 0.3s ease;
 }
 
 .privacy-text a:hover {
-  color: #3b82f6;
+  color: #e07b00;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -5507,7 +5499,7 @@ label {
     padding: 20px;
     gap: 15px;
   }
-  
+
   .newsletter-form {
     flex-direction: column;
   }
@@ -5520,6 +5512,7 @@ label {
     width: 100%;
   }
 }
+
 
 /*=============================
     25. Contact
