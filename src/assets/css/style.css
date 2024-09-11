@@ -5491,9 +5491,139 @@ label {
     }
 
     .roofing-form .roofing-button {
-        width: 100%;
+        width/*=============================
+        Unique Roofing Contact Form Design
+    ===============================*/
+    .roofing-contact-bg {
+      background-color: #1f2937;
+      padding: 50px 30px;
+      border-radius: 10px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
-}
+    
+    .roofing-contact-title {
+      flex: 1;
+      min-width: 300px;
+      text-align: left;
+    }
+    
+    .roofing-contact-title .roofing-sub-title {
+      font-size: 16px;
+      color: #f1f1f1;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    
+    .roofing-contact-title .roofing-main-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .roofing-form {
+      display: flex;
+      flex: 2;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    
+    .roofing-form .roofing-form-grp {
+      flex: 1 1 calc(25% - 10px); /* Ajuste para cuatro campos en una línea */
+      min-width: 180px;
+      max-width: 250px;
+    }
+    
+    .roofing-form .roofing-form-grp input {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f3f4f6;
+      font-size: 14px;
+      color: #333;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .roofing-form .roofing-form-grp input::placeholder {
+      color: #6b7280;
+    }
+    
+    .roofing-form .roofing-form-grp input:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #ffa500;
+    }
+    
+    .roofing-form .roofing-button {
+      padding: 14px 20px;
+      background-color: #ff8c00;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+      font-weight: bold;
+      min-width: 120px;
+      flex: 1 1 calc(25% - 10px); /* Ajuste para que el botón se alinee con los campos */
+      max-width: 150px;
+    }
+    
+    .roofing-form .roofing-button:hover {
+      background-color: #e07b00;
+    }
+    
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 1024px) {
+      .roofing-form {
+        gap: 15px;
+      }
+    
+      .roofing-form .roofing-form-grp {
+        flex: 1 1 calc(50% - 15px); /* Ajuste para dos campos en una línea en pantallas medianas */
+        max-width: 300px;
+      }
+    
+      .roofing-form .roofing-button {
+        flex: 1 1 calc(50% - 15px);
+        max-width: 200px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .roofing-contact-bg {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+      }
+    
+      .roofing-form {
+        flex-direction: column;
+      }
+    
+      .roofing-form .roofing-form-grp {
+        width: 100%;
+        max-width: none;
+      }
+    
+      .roofing-form .roofing-button {
+        width: 100%;
+        max-width: none;
+      }
+    }
+    
 
 /*=============================
     25. Contact
