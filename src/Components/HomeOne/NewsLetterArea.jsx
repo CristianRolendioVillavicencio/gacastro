@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import '../../assets/css/style.css'; // Asegúrate de que la ruta sea correcta
+
 
 function NewsLetterArea() {
   const [isSending, setIsSending] = useState(false);
