@@ -5419,17 +5419,30 @@ label {
 ===============================*/
 .section-title.white-title-two .sub-title {
   color: var(--tg-white);
+  font-size: 16px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
 .section-title.white-title-two .title {
-  color: var(--tg-white);
+  color: #333;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
+
 .newsletter-bg {
   background-size: cover;
   background-position: center;
   position: relative;
   z-index: 1;
-  padding: 87px 0;
+  padding: 60px 20px;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
+
 .newsletter-bg::before {
   content: "";
   position: absolute;
@@ -5437,36 +5450,76 @@ label {
   top: 0;
   width: 100%;
   height: 100%;
-  background: #0f1437;
-  opacity: 0.92;
+  background: rgba(15, 20, 55, 0.92);
   z-index: -1;
+  border-radius: 10px;
 }
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .newsletter-form form {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
 }
+
 .newsletter-form .form-grp {
-  width: 260px;
+  width: 100%;
 }
-.newsletter-form .form-grp input {
+
+.newsletter-form .form-grp input,
+.newsletter-form .form-grp textarea {
   width: 100%;
   font-weight: 400;
   font-size: 14px;
-  color: var(--tg-heading-font-color);
-  border: none;
-  background: var(--tg-white);
+  color: #555;
+  border: 1px solid #ddd;
+  background: #fff;
   border-radius: 5px;
-  padding: 18px 20px;
-  height: 58px;
+  padding: 14px;
+  transition: border-color 0.3s ease;
 }
-.newsletter-form .form-grp input::placeholder {
+
+.newsletter-form .form-grp input::placeholder,
+.newsletter-form .form-grp textarea::placeholder {
   color: #9aa2b1;
   font-weight: 400;
   font-size: 14px;
 }
+
+.newsletter-form .form-grp input:focus,
+.newsletter-form .form-grp textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.newsletter-form button {
+  padding: 14px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.newsletter-form button:hover {
+  background-color: #0056b3;
+}
+
+.newsletter-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
 /*=============================
     25. Contact
 ===============================*/
