@@ -45,8 +45,10 @@ function NewsLetterArea() {
   return (
     <section className="newsletter-bg">
       <div className="section-title white-title-two">
-        <span className="sub-title">Stay Updated</span>
-        <h2 className="title">Subscribe to Our Newsletter</h2>
+        <h2 className="title">Sign up for our newsletter</h2>
+        <p className="description">
+          Join many others and subscribe to get product updates, market insights, tips & tricks to selling software, and more.
+        </p>
       </div>
       <div className="newsletter-form">
         <form onSubmit={handleSubmit}>
@@ -54,7 +56,7 @@ function NewsLetterArea() {
             <input
               type="text"
               name="fullName"
-              placeholder="Full Name"
+              placeholder="Your name"
               value={formData.fullName}
               onChange={handleChange}
               required
@@ -64,7 +66,7 @@ function NewsLetterArea() {
             <input
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder="Your email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -74,7 +76,7 @@ function NewsLetterArea() {
             <input
               type="text"
               name="phone"
-              placeholder="Phone Number"
+              placeholder="Phone number"
               value={formData.phone}
               onChange={handleChange}
             />
@@ -91,16 +93,19 @@ function NewsLetterArea() {
           <div className="form-grp">
             <textarea
               name="message"
-              placeholder="Your Message"
+              placeholder="Your message"
               value={formData.message}
               onChange={handleChange}
               rows="4"
             />
           </div>
           <button type="submit" disabled={isSending}>
-            {isSending ? "Sending..." : "Subscribe Now"}
+            {isSending ? "Sending..." : "Subscribe"}
           </button>
         </form>
+        <p className="privacy-text">
+          We care about the protection of your data. Read our <a href="#">Privacy Policy</a>.
+        </p>
         <ToastContainer />
       </div>
     </section>
