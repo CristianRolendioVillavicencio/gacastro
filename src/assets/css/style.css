@@ -5386,24 +5386,26 @@ label {
 	24. Newsletter
 ===============================*/
 /*=============================
-	Newsletter Form Design
+	Newsletter Form Horizontal Design
 ===============================*/
 .newsletter-bg {
     background-color: #111827;
     padding: 40px 20px;
     border-radius: 10px;
     color: #f9fafb;
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.section-title.white-title-two .sub-title {
-    color: var(--tg-white);
-    font-size: 16px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.section-title.white-title-two {
+    flex: 1;
+    min-width: 200px;
 }
 
 .section-title.white-title-two .title {
@@ -5421,18 +5423,16 @@ label {
 
 .newsletter-form {
     display: flex;
-    flex-direction: column;
+    flex: 2;
+    align-items: center;
     gap: 10px;
-}
-
-.newsletter-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .newsletter-form .form-grp {
-    width: 100%;
+    display: flex;
+    flex: 1;
+    min-width: 150px;
 }
 
 .newsletter-form .form-grp input,
@@ -5443,7 +5443,7 @@ label {
     border: 1px solid #e5e7eb;
     background: #f9fafb;
     border-radius: 5px;
-    padding: 12px;
+    padding: 10px;
     transition: border-color 0.3s ease;
 }
 
@@ -5459,7 +5459,7 @@ label {
 }
 
 .newsletter-form button {
-    padding: 12px 20px;
+    padding: 10px 20px;
     background-color: #4b5563;
     color: #ffffff;
     border: none;
@@ -5493,6 +5493,27 @@ label {
 
 .privacy-text a:hover {
     color: #3b82f6;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .newsletter-bg {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form .form-grp {
+        width: 100%;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
 }
 
 /*=============================
