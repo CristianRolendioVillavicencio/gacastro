@@ -2154,7 +2154,6 @@ label {
     color: #333;
     margin-bottom: 40px;
     text-transform: uppercase;
-    position: relative;
 }
 
 .services-container {
@@ -2170,7 +2169,7 @@ label {
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out; /* Efecto pequeño de zoom */
     text-align: left;
     position: relative;
     overflow: hidden;
@@ -2178,8 +2177,7 @@ label {
 }
 
 .services-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03); /* Efecto de zoom pequeño al pasar el ratón */
 }
 
 .services-icon {
@@ -2215,7 +2213,7 @@ label {
 }
 
 .read-more:hover {
-    background: #0056b3; /* Color al pasar el ratón */
+    background: #0056b3; /* Color del botón al pasar el ratón */
 }
 
 /* Media Queries for Responsiveness */
