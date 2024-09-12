@@ -1,20 +1,25 @@
 // EssentialFeatures.jsx
 import React from 'react';
 import './EssentialFeatures.css';
-import { Swiper, SwiperSlide } from 'swiper/react'; // Importa componentes de Swiper
-import { features } from './featuresData'; // Importa los datos de servicios
-import 'swiper/css'; // Importa los estilos de Swiper
-import 'swiper/css/navigation'; // Estilos adicionales si usas navegación
-import 'swiper/css/pagination'; // Estilos adicionales si usas paginación
+import { Swiper, SwiperSlide } from 'swiper/react'; // Importa los componentes de Swiper
+import { features } from './featuresData.ts'; // Asegúrate de que la ruta sea correcta y que el archivo featuresData.ts esté bien ubicado
+import 'swiper/css'; // Importa los estilos básicos de Swiper
+import 'swiper/css/navigation'; // Importa los estilos para la navegación
+import 'swiper/css/pagination'; // Importa los estilos para la paginación
 
-const EssentialFeatures = () => (
+const EssentialFeatures = () => {
+  // Función para manejar el click del botón "More Services"
+  const handleMoreServicesClick = (link) => {
+    window.location.href = link;
+  };
+
+  return (
     <section className="essential-features">
       <h2 className="features-title">Our Essential Features</h2>
       <Swiper
         spaceBetween={20}
         slidesPerView={1}
         breakpoints={{
-          // Responsiveness settings
           640: {
             slidesPerView: 2, // Número de slides visibles en pantallas medianas
             spaceBetween: 20,
@@ -41,7 +46,7 @@ const EssentialFeatures = () => (
                 <button
                   className="feature-button"
                   type="button"
-                  onClick={() => (window.location.href = feature.link)}
+                  onClick={() => handleMoreServicesClick(feature.link)}
                 >
                   {feature.buttonText}
                 </button>
@@ -56,5 +61,6 @@ const EssentialFeatures = () => (
       </Swiper>
     </section>
   );
+};
 
 export default EssentialFeatures;
