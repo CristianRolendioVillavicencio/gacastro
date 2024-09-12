@@ -50,7 +50,7 @@ export const features: Feature[] = [
     },
 
     {
-        id: "7",
+        id: "6",
         icon: "💬",
         title: "Painting Services",
         description:
@@ -58,7 +58,15 @@ export const features: Feature[] = [
         buttonText: "READ MORE",
     },
     {
-        id: "8",
+        id: "6",
+        icon: "💬",
+        title: "Carpentry Services",
+        description:
+            "Our tree damage services help you recover from fallen or damaged trees. We offer removal, repair, and preventive measures to protect your property.",
+        buttonText: "READ MORE",
+    },
+    {
+        id: "7",
         icon: "💬",
         title: "More Services",
         description:
