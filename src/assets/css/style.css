@@ -2146,41 +2146,54 @@ label {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    overflow: hidden;
+}
+
+.services-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.services-title::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: #ff6347;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+.services-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 0 20px;
+    scroll-behavior: smooth;
 }
 
 .services-item {
+    flex: 0 0 auto;
+    width: 300px;
+    background: #fffbf2;
     padding: 30px 20px;
-    background: #f9f9f9; /* Fondo claro */
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     position: relative;
-    z-index: 1;
-    overflow: hidden;
-    margin-bottom: 20px;
-    max-width: 320px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .services-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.services-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    z-index: -1;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.services-item:hover::before {
-    opacity: 0;
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .services-icon {
@@ -2189,96 +2202,64 @@ label {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #eef3f8;
-    color: #0056b3;
-    font-size: 35px;
+    background: #007bff;
+    color: #ffffff;
+    font-size: 40px;
     border-radius: 50px;
-    margin-bottom: 15px;
+    margin: 0 auto 20px auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.services-item:hover .services-icon {
+    transform: rotate(360deg);
 }
 
 .services-content .title {
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .services-content p {
     font-size: 14px;
-    color: #606060;
+    color: #555;
+    line-height: 1.6;
 }
 
 .services-content .read-more {
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 14px;
     color: #007bff;
     display: inline-flex;
     align-items: center;
-    position: relative;
-    z-index: 1;
-    padding: 0 12px;
+    gap: 5px;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .services-content .read-more:hover {
-    text-decoration: underline;
+    color: #ff6347;
 }
 
-/* Responsividad para diferentes dispositivos */
-@media (max-width: 1024px) {
-    .services-thumb-three {
-        padding-left: 20px;
-    }
-
-    .services-img {
-        max-width: 400px;
-        max-height: 385px;
-    }
+.services-content .read-more i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
 }
 
+.services-content .read-more:hover i {
+    transform: translateX(5px);
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .services-area {
         padding: 40px 10px;
     }
 
     .services-item {
-        max-width: 100%;
-    }
-
-    .services-thumb-three {
-        padding-left: 0;
-    }
-
-    .services-img {
-        max-width: 100%;
-        max-height: auto;
-    }
-
-    .services-item-three {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .services-content-three,
-    .services-thumb-three {
-        width: 100%;
-    }
-
-    .project-area-three {
-        padding: 115px 0 5px; /* Ajuste para la versión móvil */
-    }
-}
-
-/* Ajuste del padding para desktop */
-.services-details-area {
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-    .services-details-area {
-        padding-top: 30px;
-        padding-bottom: 30px;
+        width: 85%;
+        margin: 0 auto;
     }
 }
 
