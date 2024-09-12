@@ -5,72 +5,80 @@ export interface Feature {
     title: string;
     description: string;
     buttonText: string;
+    link: string;
 }
 
 export const features: Feature[] = [
     {
-        id: "1", // Puedes usar ids generados o mantener simples identificadores string
-        icon: "📄",
+        id: "1",
+        icon: "🏠", // Cambia este icono a algo representativo de Roofing
         title: "Roofing Services",
-        description:
-            "Ensure the durability and safety of your home with our expert roofing services. We offer installation, repair, and maintenance to keep your roof in top condition.",
+        description: "Professional roofing services to protect your home.",
         buttonText: "READ MORE",
+        link: "/services/roofing-services",
     },
     {
         id: "2",
-        icon: "🎥",
+        icon: "🏡", // Cambia este icono a algo representativo de Siding
         title: "Siding Services",
-        description:
-            "Enhance the look and protection of your home with our siding services. We provide high-quality siding installation and repair to suit your style and budget.",
+        description: "Enhance your home’s exterior with quality siding services.",
         buttonText: "READ MORE",
+        link: "/services/siding-services",
     },
     {
         id: "3",
-        icon: "💬",
-        title: "Copper Services",
-        description:
-            "We specialize in copper roofing and guttering solutions. Our copper services add elegance and longevity to your property, ensuring superior weather resistance.",
+        icon: "🛠️", // Icono representativo de Carpentry
+        title: "Carpentry Services",
+        description: "Expert carpentry solutions for your home improvement needs.",
         buttonText: "READ MORE",
+        link: "/services/carpentry-services",
     },
     {
         id: "4",
-        icon: "💬",
-        title: "Wind Damage Services",
-        description:
-            "Protect your home from severe weather. Our wind damage services include assessment, repair, and reinforcement to keep your home safe and secure.",
+        icon: "🎨", // Icono representativo de Painting
+        title: "Painting Services",
+        description: "High-quality painting services to beautify your space.",
         buttonText: "READ MORE",
+        link: "/services/painting-services",
     },
     {
         id: "5",
-        icon: "💬",
-        title: "Water Damage Services",
-        description:
-            "Address water damage promptly with our specialized services. We provide comprehensive water damage assessment, repair, and prevention solutions.",
+        icon: "🪙", // Icono representativo de Copper
+        title: "Copper Services",
+        description: "Specialized copper installations and maintenance services.",
         buttonText: "READ MORE",
-    },
-
-    {
-        id: "6",
-        icon: "💬",
-        title: "Painting Services",
-        description:
-            "Our tree damage services help you recover from fallen or damaged trees. We offer removal, repair, and preventive measures to protect your property.",
-        buttonText: "READ MORE",
+        link: "/services/copper-services",
     },
     {
         id: "6",
-        icon: "💬",
-        title: "Carpentry Services",
-        description:
-            "Our tree damage services help you recover from fallen or damaged trees. We offer removal, repair, and preventive measures to protect your property.",
+        icon: "💨", // Icono representativo de Wind Damage
+        title: "Wind Damage Services",
+        description: "Repair services for damage caused by windstorms.",
         buttonText: "READ MORE",
+        link: "/services/wind-damage-services",
     },
     {
         id: "7",
-        icon: "💬",
-        title: "More Services",
-        description:
-            "Our tree damage services help you recover from fallen or damaged trees. We offer removal, repair, and preventive measures to protect your property.",
+        icon: "💧", // Icono representativo de Water Damage
+        title: "Water Damage Services",
+        description: "Professional water damage restoration services.",
         buttonText: "READ MORE",
+        link: "/services/water-damage-services",
+    },
+    {
+        id: "8",
+        icon: "🌳", // Icono representativo de Tree Damage
+        title: "Tree Damage Services",
+        description: "Repair services for damages caused by fallen trees.",
+        buttonText: "READ MORE",
+        link: "/services/tree-damage-services",
+    },
+    {
+        id: "9",
+        icon: "🔍", // Icono de búsqueda o navegación para "More Services"
+        title: "More Services",
+        description: "Explore more of our services to find what you need.",
+        buttonText: "MORE SERVICES ➔",
+        link: "/services",
     },
 ];
