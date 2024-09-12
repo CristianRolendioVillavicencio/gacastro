@@ -3,6 +3,8 @@ import HeaderThree from "../Layouts/Headers/HeaderThree";
 import FooterOne from "../Layouts/Footers/FooterOne";
 import NewsLetterArea from "../HomeOne/NewsLetterArea";
 import ServiceArea from "../HomeOne/ServiceArea";
+import EssentialFeatures from "./EssentialFeatures";
+
 import DiscoverServices from "./DiscoverServices";
 import HistoryArea from "../About/HistoryArea";
 import ProjectArea from "./ProjectArea";
@@ -19,6 +21,7 @@ function HomeThree() {
       <NewsLetterArea />
 
         <ServiceArea/>
+        <EssentialFeatures />
         <DiscoverServices />
         <HistoryArea />
         <ProjectArea />
