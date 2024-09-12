@@ -1,31 +1,7 @@
 // EssentialFeatures.jsx
 import React from 'react';
-import './EssentialFeatures.css'; // Asegúrate de tener un archivo CSS para los estilos
-import { v4 as uuidv4 } from 'uuid'; // Instala uuid con 'npm install uuid'
-
-const features = [
-  {
-    id: uuidv4(),
-    icon: '📄',
-    title: 'Online Documentation',
-    description: 'Rapidiously incentivize professional e-tailers and interactive web-readiness',
-    buttonText: 'READ MORE',
-  },
-  {
-    id: uuidv4(),
-    icon: '🎥',
-    title: 'Watch Video Tutorial',
-    description: 'Rapidiously incentivize professional e-tailers and interactive web-readiness',
-    buttonText: 'READ MORE',
-  },
-  {
-    id: uuidv4(),
-    icon: '💬',
-    title: 'Dedicated Supports',
-    description: 'Rapidiously incentivize professional e-tailers and interactive web-readiness',
-    buttonText: 'READ MORE',
-  },
-];
+import './EssentialFeatures.css';
+import { features } from './featuresData.ts'; // Importa el array de características desde featuresData.ts
 
 const EssentialFeatures = () => (
     <section className="essential-features">
