@@ -1,71 +1,33 @@
-// EssentialFeatures.jsx
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react'; // Importa los componentes de Swiper
-import 'swiper/css'; // Importa los estilos básicos de Swiper
-import 'swiper/css/navigation'; // Estilos para la navegación
-import 'swiper/css/pagination'; // Estilos para la paginación
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'; // Ajusta la importación de módulos de Swiper correctamente
-import './EssentialFeatures.css';
-import { features } from './featuresData.ts'; // Asegúrate de que la importación coincida con el nombre y la ubicación del archivo
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.min.css'; // Asegúrate de importar los estilos de Swiper
+import './EssentialFeatures.css'; // Importa los estilos CSS personalizados
+import { slidesData } from './featuresData.ts'; // Importa los datos desde tu archivo TS/JS
 
-const EssentialFeatures = () => {
-  const handleMoreServicesClick = (link) => {
-    window.location.href = link;
-  };
-
-  return (
-    <section className="essential-features">
-      <h2 className="features-title">Our Essential Features</h2>
+const BlogSlider = () => (
+    <div className="blog-slider">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]} // Asigna los módulos importados aquí
-        spaceBetween={20}
-        slidesPerView={1}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-        }}
-        navigation
+        spaceBetween={30}
+        effect="fade"
+        loop
         pagination={{ clickable: true }}
+        className="swiper-wrapper"
       >
-        {features.map((feature) => (
-          <SwiperSlide key={feature.id}>
-            <div className="feature-card">
-              <div className="feature-icon">{feature.icon}</div>
-              <h3 className="feature-title">{feature.title}</h3>
-              <p className="feature-description">{feature.description}</p>
-              {feature.title === 'More Services' ? (
-                <button
-                  className="feature-button"
-                  type="button"
-                  onClick={() => handleMoreServicesClick(feature.link)}
-                >
-                  {feature.buttonText}
-                </button>
-              ) : (
-                <a href={feature.link} className="feature-button" role="button">
-                  {feature.buttonText}
-                </a>
-              )}
+        {slidesData.map((slide) => (
+          <SwiperSlide key={slide.id} className="blog-slider__item">
+            <div className="blog-slider__img">
+              <img src={slide.img} alt={slide.title} />
+            </div>
+            <div className="blog-slider__content">
+              <span className="blog-slider__code">{slide.date}</span>
+              <div className="blog-slider__title">{slide.title}</div>
+              <div className="blog-slider__text">{slide.text}</div>
+              <a href="#" className="blog-slider__button">READ MORE</a>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-    </section>
+    </div>
   );
-};
 
-export default EssentialFeatures;
+export default BlogSlider;
