@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick'; // Importa Slider desde react-slick
 import './EssentialFeatures.css'; // Importa tu CSS personalizado
-import { slidesData } from './featuresData.ts'; // Asegúrate de ajustar la ruta
+import slidesData from './featuresData.ts'; // Asegúrate de ajustar la ruta
 
 // Importa los estilos de Slick Carousel
 import "slick-carousel/slick/slick.css";
