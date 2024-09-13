@@ -1,14 +1,14 @@
 // EssentialFeatures.jsx
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react'; // Importa Swiper primero
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/modules/navigation/navigation.min.css';
-import 'swiper/modules/pagination/pagination.min.css';
+import { Swiper, SwiperSlide } from 'swiper/react'; // Importa correctamente Swiper
+import 'swiper/css'; // Estilos básicos de Swiper
+import 'swiper/css/navigation'; // Estilos de navegación
+import 'swiper/css/pagination'; // Estilos de paginación
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import './EssentialFeatures.css';
-import { features } from './featuresData.ts'; // Importa el archivo correctamente, asegurando que las mayúsculas coincidan
+import { features } from './featuresData.ts'; // Asegúrate de que la importación sea correcta y coincida con el nombre del archivo
 
-// Activar módulos de navegación, paginación y autoplay
+// Activa los módulos necesarios para Swiper
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const EssentialFeatures = () => {
