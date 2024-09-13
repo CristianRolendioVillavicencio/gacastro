@@ -1,20 +1,29 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.min.css'; // Asegúrate de importar los estilos de Swiper
-import './EssentialFeatures.css'; // Importa los estilos CSS personalizados
-import { slidesData } from './featuresData.ts'; // Importa los datos desde tu archivo TS/JS
+import Slider from 'react-slick'; // Importa Slider desde react-slick
+import './EssentialFeatures.css'; // Importa tu CSS personalizado
+import { slidesData } from './featuresData.ts'; // Asegúrate de ajustar la ruta
 
-const BlogSlider = () => (
+// Importa los estilos de Slick Carousel
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const BlogSlider = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true, // Puedes desactivar las flechas si no las necesitas
+    autoplay: true, // Configura la reproducción automática si deseas
+    autoplaySpeed: 3000,
+  };
+
+  return (
     <div className="blog-slider">
-      <Swiper
-        spaceBetween={30}
-        effect="fade"
-        loop
-        pagination={{ clickable: true }}
-        className="swiper-wrapper"
-      >
+      <Slider {...settings}>
         {slidesData.map((slide) => (
-          <SwiperSlide key={slide.id} className="blog-slider__item">
+          <div key={slide.id} className="blog-slider__item">
             <div className="blog-slider__img">
               <img src={slide.img} alt={slide.title} />
             </div>
@@ -24,10 +33,11 @@ const BlogSlider = () => (
               <div className="blog-slider__text">{slide.text}</div>
               <a href="#" className="blog-slider__button">READ MORE</a>
             </div>
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
+      </Slider>
     </div>
   );
+};
 
 export default BlogSlider;
