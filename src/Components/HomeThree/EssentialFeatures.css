@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    
-    min-height: 100vh;
-    font-family: "Fira Sans", sans-serif;
-    display: flex;
-}
 
 .blog-slider {
     width: 95%;
@@ -22,6 +16,8 @@ body {
     border-radius: 25px;
     height: 400px;
     transition: all 0.3s;
+    background-color: #ffe53b; /* Fondo del slider */
+    background-image: linear-gradient(147deg, #ffe53b 0%, #fd3838 74%); /* Gradiente aplicado solo al slider */
 }
 
 .blog-slider__item {
