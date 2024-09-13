@@ -6,7 +6,7 @@ import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import './EssentialFeatures.css';
-import { features } from './featuresData'; // Importa el archivo correctamente, asegurando que las mayúsculas coincidan
+import { features } from './featuresData.ts'; // Importa el archivo correctamente, asegurando que las mayúsculas coincidan
 
 // Activar módulos de navegación, paginación y autoplay
 SwiperCore.use([Navigation, Pagination, Autoplay]);
