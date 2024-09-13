@@ -1,15 +1,15 @@
 // EssentialFeatures.jsx
 import React from 'react';
-import './EssentialFeatures.css';
-import { features } from './featuresData.ts'; // Ajusta la ruta según la ubicación correcta
-import { Swiper, SwiperSlide } from 'swiper/react'; // Importa los componentes necesarios de Swiper
-import 'swiper/swiper-bundle.min.css'; // Usa esta ruta si las anteriores fallan
+import { Swiper, SwiperSlide } from 'swiper/react'; // Importa Swiper primero
+import 'swiper/swiper-bundle.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+import './EssentialFeatures.css';
+import { features } from './featuresData'; // Importa el archivo correctamente, asegurando que las mayúsculas coincidan
 
-// Activar los módulos de navegación y paginación
-SwiperCore.use([Navigation, Pagination]);
+// Activar módulos de navegación, paginación y autoplay
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const EssentialFeatures = () => {
   const handleMoreServicesClick = (link) => {
@@ -22,6 +22,10 @@ const EssentialFeatures = () => {
       <Swiper
         spaceBetween={20}
         slidesPerView={1}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         breakpoints={{
           640: {
             slidesPerView: 2,
@@ -32,7 +36,7 @@ const EssentialFeatures = () => {
             spaceBetween: 30,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 40,
           },
         }}

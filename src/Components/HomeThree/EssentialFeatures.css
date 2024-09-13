@@ -1,6 +1,6 @@
 .essential-features {
     padding: 50px 20px;
-    background: #ffffff; /* Fondo blanco */
+    background: #ffffff;
     text-align: center;
 }
 
@@ -15,6 +15,7 @@
     border-radius: 8px;
     padding: 20px;
     max-width: 300px;
+    margin: 0 auto; /* Centra las tarjetas */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
@@ -47,4 +48,39 @@
 
 .feature-button:hover {
     background: #005f75;
+}
+
+/* Estilos para las flechas de navegación */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #007bff;
+    font-size: 24px; /* Ajusta el tamaño de las flechas */
+    margin: 0 15px; /* Separa las flechas de las tarjetas */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #0056b3;
+}
+
+/* Ajustes para mejorar la visibilidad y el centrado de las flechas */
+.swiper-button-next {
+    right: 10px; /* Ajusta la posición derecha de la flecha */
+}
+
+.swiper-button-prev {
+    left: 10px; /* Ajusta la posición izquierda de la flecha */
+}
+
+/* Media Queries para asegurar la responsividad */
+@media (max-width: 640px) {
+    .feature-card {
+        margin: 20px auto; /* Asegura que las tarjetas estén centradas en móviles */
+    }
+}
+
+@media (min-width: 1024px) {
+    .feature-card {
+        margin: 20px; /* Añade un margen para mayor separación en pantallas grandes */
+    }
 }
