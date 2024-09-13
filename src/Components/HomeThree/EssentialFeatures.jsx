@@ -1,15 +1,12 @@
 // EssentialFeatures.jsx
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react'; // Importa Swiper correctamente
-import 'swiper/css'; // Importa los estilos básicos de Swiper
-import 'swiper/css/navigation'; // Importa los estilos para la navegación
-import 'swiper/css/pagination'; // Importa los estilos para la paginación
-import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'; // Importa los módulos que necesitas
+import { Swiper, SwiperSlide } from 'swiper/react'; // Importa los componentes de Swiper
+import 'swiper/css'; // Estilos básicos de Swiper
+import 'swiper/css/navigation'; // Estilos para la navegación
+import 'swiper/css/pagination'; // Estilos para la paginación
+import { Navigation, Pagination, Autoplay } from 'swiper'; // Importa los módulos directamente desde 'swiper'
 import './EssentialFeatures.css';
-import { features } from './featuresData.ts'; // Asegúrate de que el nombre del archivo y la importación coincidan
-
-// Activa los módulos de navegación, paginación y autoplay
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+import { features } from './featuresData.ts'; // Asegúrate de que la importación coincida con el nombre y la ubicación del archivo
 
 const EssentialFeatures = () => {
   const handleMoreServicesClick = (link) => {
@@ -20,6 +17,7 @@ const EssentialFeatures = () => {
     <section className="essential-features">
       <h2 className="features-title">Our Essential Features</h2>
       <Swiper
+        modules={[Navigation, Pagination, Autoplay]} // Asigna los módulos importados aquí
         spaceBetween={20}
         slidesPerView={1}
         autoplay={{
