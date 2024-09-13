@@ -1,14 +1,17 @@
 // EssentialFeatures.jsx
 import React from 'react';
 import './EssentialFeatures.css';
-import { Swiper, SwiperSlide } from 'swiper/react'; // Importa los componentes de Swiper
-import { features } from './featuresData.ts'; // Asegúrate de que la ruta sea correcta y que el archivo featuresData.ts esté bien ubicado
-import 'swiper/css'; // Importa los estilos básicos de Swiper
-import 'swiper/css/navigation'; // Importa los estilos para la navegación
-import 'swiper/css/pagination'; // Importa los estilos para la paginación
+import { features } from './featuresData.ts'; // Ajusta la ruta según la ubicación correcta
+import { Swiper, SwiperSlide } from 'swiper/react'; // Importa los componentes necesarios de Swiper
+import 'swiper/swiper-bundle.min.css'; // Usa esta ruta si las anteriores fallan
+import 'swiper/modules/navigation/navigation.min.css';
+import 'swiper/modules/pagination/pagination.min.css';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+
+// Activar los módulos de navegación y paginación
+SwiperCore.use([Navigation, Pagination]);
 
 const EssentialFeatures = () => {
-  // Función para manejar el click del botón "More Services"
   const handleMoreServicesClick = (link) => {
     window.location.href = link;
   };
@@ -21,15 +24,15 @@ const EssentialFeatures = () => {
         slidesPerView={1}
         breakpoints={{
           640: {
-            slidesPerView: 2, // Número de slides visibles en pantallas medianas
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 3, // Número de slides visibles en pantallas grandes
+            slidesPerView: 3,
             spaceBetween: 30,
           },
           1024: {
-            slidesPerView: 4, // Número de slides visibles en pantallas muy grandes
+            slidesPerView: 4,
             spaceBetween: 40,
           },
         }}
