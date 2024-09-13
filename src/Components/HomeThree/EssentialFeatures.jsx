@@ -1,10 +1,10 @@
 // EssentialFeatures.jsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'; // Importa los componentes de Swiper
-import 'swiper/css'; // Estilos básicos de Swiper
+import 'swiper/css'; // Importa los estilos básicos de Swiper
 import 'swiper/css/navigation'; // Estilos para la navegación
 import 'swiper/css/pagination'; // Estilos para la paginación
-import { Navigation, Pagination, Autoplay } from 'swiper'; // Importa los módulos directamente desde 'swiper'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'; // Ajusta la importación de módulos de Swiper correctamente
 import './EssentialFeatures.css';
 import { features } from './featuresData.ts'; // Asegúrate de que la importación coincida con el nombre y la ubicación del archivo
 
